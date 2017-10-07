@@ -17,7 +17,7 @@ public class HardDiscSpaceViewer {
     @SuppressWarnings("CanBeFinal") //intellij error
     private File currentFile;
 
-    private HardDiscSpaceViewer() {
+    public HardDiscSpaceViewer() {
         currentFile = new File("/");
 
         console = new SimpleConsole();
@@ -79,10 +79,6 @@ public class HardDiscSpaceViewer {
         console.registerCommand("update", args -> SizeCounter.size.clear());
         console.onNoCommand(label -> write("Command '" + label + "' not found"));
         console.start();
-    }
-
-    public static void main(String[] args) {
-        new HardDiscSpaceViewer();
     }
 
     private static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
